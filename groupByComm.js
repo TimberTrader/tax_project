@@ -3,8 +3,12 @@ const R = require('ramda');
 
 // let content
 
-fs.readFile('./testdata/data2018test.json', function read(err, data){
+fs.readFile('./testdata/data2018ltd.js', function read(err, data){
   if (err) throw err;
-  let content = data;
-  console.log(content.length)
-});
+  
+  let isComm = R.contains('BRENTWOOD', R.pluck('comm_name', data));
+
+  if (isComm) {
+    console.log('brentwood')
+  }
+  });
