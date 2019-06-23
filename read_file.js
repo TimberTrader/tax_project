@@ -1,7 +1,7 @@
 const fs = require('fs-extra');
 
 
-fs.readFile('./testdata/data2018test.json', function read(err, data){
+fs.readFile('./testdata/data2018ltd.js', function read(err, data){
   if (err) throw err;
   console.log(data.length);
 });
