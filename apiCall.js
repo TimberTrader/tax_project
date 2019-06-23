@@ -7,7 +7,7 @@ const resourceIDMap = {
 
 function apiCall(resourceID, callBack) {
   let options = {
-    url: `https://data.calgary.ca/resource/${resourceIDMap[resourceID]}.json?$Limit=50000&assessment_class=RE&roll_year=2018`,
+    url: `https://data.calgary.ca/resource/${resourceIDMap[resourceID]}.json?$Limit=100&assessment_class=RE&roll_year=2018`,
     headers: {
       'User-Agent': 'request',
       'X-App-Token': 'TuumEdQ9KIehmtGnn2QjJoes7'
@@ -18,7 +18,7 @@ function apiCall(resourceID, callBack) {
     console.log('statusCode:', response && response.statusCode);
     let dataObj = JSON.parse(body);
     console.log(dataObj.length);
-    fs.writeJson('./testdata/data2018ltd.js', {dataObj}, err => {
+    fs.writeJson('./testdata/data2018xxxsmall.js', {dataObj}, err => {
       if (err) return console.error(err)
     
       console.log('success!')

@@ -2,9 +2,10 @@ const fs = require('fs-extra');
 const R = require('ramda');
 
 try {
-  const data = fs.readFileSync('./testdata/data2018ltd.js')
-  console.log(data.length)
-  console.log(R.find(R.propEq('comm_name', 'WEST SPRINGS'))(data));
+  const data = fs.readFile('./testdata/data2018xxxsmall.js')
+  // console.log(data.length)
+  // console.log(R.find(R.propEq('comm_name', 'WEST SPRINGS'))(data));
+  console.log(R.pluck('comm_code', data));
 
 } catch (err) {
   console.error(err)
