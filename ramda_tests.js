@@ -15,9 +15,9 @@ const data = [{"roll_year":"2018","roll_number":"202016192","address":"47V 142 8
 //   R.groupBy(R.prop('comm_code')),
 //   R.map(R.pluck('assessed_value'),
 //   R.map(R.median))
-// );
+// )(data);
 
-// console.log(avgValue(data))
+// console.log(avgValueByComm)
 
 const byComm = R.groupBy(R.prop('comm_code'))(data);
 // console.log(byComm)
@@ -25,5 +25,8 @@ const byComm = R.groupBy(R.prop('comm_code'))(data);
 const assVal = R.map(R.pluck('assessed_value'))(byComm);
 // console.log(assVal)
 
-const midAssVal = R.map(R.median)(assVal);
-console.log(midAssVal)
+// const midAssVal = R.map(R.median)(assVal);
+// console.log(midAssVal)
+
+const maxAssVal = R.map(R.maxBy(assVal));
+console.log(maxAssVal)
